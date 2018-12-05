@@ -11,7 +11,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh './jenkins/scripts/kill.sh'
+                sh 'docker ps -f name=boring_ardinghelli  -q | xargs --no-run-if-empty docker container stop'
+                sh 'docker container ls -a -fname=boring_ardinghelli  -q | xargs -r docker container rm'
                 sh 'npm install'
             }
         }
