@@ -11,8 +11,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh './jenkins/scripts/kill.sh'
-               
+                 sh 'npm install'
             }
         }
         stage('Test') {
