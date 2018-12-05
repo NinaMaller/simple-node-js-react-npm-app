@@ -9,18 +9,10 @@ pipeline {
         CI = 'true'
     }
     stages {
-        stage('Remove') {
-            steps {
-                sh './jenkins/scripts/kill.sh'
-                sh 'docker stop $(ps -ef)'
-            }
-            
-        }
-        
         stage('Build') {
             steps {
                 sh './jenkins/scripts/kill.sh'
-                sh 'npm install'
+               
             }
         }
         stage('Test') {
