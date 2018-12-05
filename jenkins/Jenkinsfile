@@ -9,10 +9,14 @@ pipeline {
         CI = 'true'
     }
     stages {
+        stage('Remove'){
+            sh 'docker stop $(docker ps -aq)'
+            sh 'docker rm $(docker ps -aq)'
+            
+        }
         stage('Build') {
             steps {
-                sh 'docker stop $(docker ps -aq)'
-                sh 'docker rm $(docker ps -aq)'
+                
                 sh 'npm install'
             }
         }
