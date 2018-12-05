@@ -10,8 +10,10 @@ pipeline {
     }
     stages {
         stage('Remove'){
-            sh 'docker stop $(docker ps -aq)'
-            sh 'docker rm $(docker ps -aq)'
+            steps {
+                sh 'docker stop $(docker ps -aq)'
+                sh 'docker rm $(docker ps -aq)'
+            }
             
         }
         stage('Build') {
